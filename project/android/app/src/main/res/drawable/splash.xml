@@ -4,7 +4,7 @@
     <item android:drawable="@color/primary"/>
     <item android:drawable="@mipmap/splash"
           android:width="680px"
-          android:height="700px"
+          android:height="620px"
           android:gravity="center"
            />
      
