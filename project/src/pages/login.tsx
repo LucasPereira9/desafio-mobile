@@ -1,7 +1,7 @@
 import React from 'react';
 import {Image, View} from 'react-native';
 
-const App: React.FC = () => {
+const Login: React.FC = () => {
   return (
     <View
       // eslint-disable-next-line react-native/no-inline-styles
@@ -16,4 +16,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default Login;
