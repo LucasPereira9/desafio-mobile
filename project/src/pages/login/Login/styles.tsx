@@ -6,13 +6,13 @@ export const Container = styled.View`
 `;
 export const TopContainer = styled.View`
   width: 100%
-  height: 30%;
+  height: 20%;
   background-color: #42C1C7;
 ;
 `;
 export const ImageContainer = styled.View`
   width: 100%;
-  height: 10%;
+  height: 27%;
   z-index: 20;
   position: absolute;
   bottom: 63%;

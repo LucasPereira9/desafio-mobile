@@ -18,7 +18,7 @@ import {
 function Login({navigation}: any) {
   const [senha, setSenha] = useState('');
   function Logar() {
-    if (senha === '1') {
+    if (senha === '') {
       navigation.navigate('Home');
       setSenha('');
     } else {
@@ -38,7 +38,7 @@ function Login({navigation}: any) {
       </ImageContainer>
       <Text style={styles.text}>E-mail</Text>
       <EmailContainer>
-        <Text style={styles.emailText}>lucas@gmail.com</Text>
+        <Text style={styles.emailText}>lucas@qesh.com</Text>
       </EmailContainer>
       <Text style={styles.text2}>Senha</Text>
       <TextInput

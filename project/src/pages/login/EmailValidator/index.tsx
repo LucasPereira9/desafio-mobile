@@ -13,7 +13,7 @@ import {Container, ImageContainer} from './styles';
 function EmailValidator({navigation}: any) {
   const [email, setEmail] = useState('');
   function Login() {
-    if (email === 'a') {
+    if (email === '') {
       navigation.navigate('Login');
       setEmail('');
     } else {
