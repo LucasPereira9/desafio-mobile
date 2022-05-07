@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Text,
   TextInput,
+  ToastAndroid,
   TouchableOpacity,
 } from 'react-native';
 import {
@@ -17,12 +18,16 @@ import {
 
 function Login({navigation}: any) {
   const [senha, setSenha] = useState('');
+
+  const setToastMessage = (msg: string) => {
+    ToastAndroid.showWithGravity(msg, ToastAndroid.LONG, ToastAndroid.CENTER);
+  };
   function Logar() {
     if (senha === '') {
       navigation.navigate('Home');
       setSenha('');
     } else {
-      Alert.alert('Senha incorreta!');
+      setToastMessage('Senha Incorreta!');
     }
   }
 

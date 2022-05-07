@@ -1,23 +1,26 @@
 import React, {useState} from 'react';
 import {
-  Alert,
   Image,
   StatusBar,
   StyleSheet,
   Text,
   TextInput,
-  TouchableOpacity,
+  ToastAndroid,
 } from 'react-native';
 import {Container, ImageContainer} from './styles';
 
 function EmailValidator({navigation}: any) {
   const [email, setEmail] = useState('');
+
+  const setToastMessage = (msg: string) => {
+    ToastAndroid.showWithGravity(msg, ToastAndroid.LONG, ToastAndroid.CENTER);
+  };
   function Login() {
     if (email === '') {
       navigation.navigate('Login');
       setEmail('');
     } else {
-      Alert.alert('Email ou senha incorretos!');
+      setToastMessage('Email Incorreto!');
     }
   }
   return (
@@ -39,10 +42,8 @@ function EmailValidator({navigation}: any) {
         placeholderTextColor={'#A8A8A8'}
         returnKeyType={'next'}
         keyboardType="email-address"
+        onSubmitEditing={() => Login()}
       />
-      <TouchableOpacity onPress={Login}>
-        <Text>ENTRAR</Text>
-      </TouchableOpacity>
       <Image
         style={styles.image1}
         source={require('../../../assets/Baixo-azul.png')}
@@ -83,5 +84,8 @@ const styles = StyleSheet.create({
     marginLeft: 25,
     width: 300,
     height: 50,
+  },
+  Toast: {
+    backgroundColor: '#fc2727',
   },
 });
