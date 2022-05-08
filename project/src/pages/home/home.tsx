@@ -3,12 +3,15 @@ import React, {useState} from 'react';
 import {
   Alert,
   Image,
+  ScrollView,
+  StatusBar,
   StyleSheet,
   Switch,
   Text,
   TextInput,
   ToastAndroid,
   TouchableOpacity,
+  View,
 } from 'react-native';
 import {TopContainer, Container, ImageContainer} from '../login/Login/styles';
 import {
@@ -16,9 +19,12 @@ import {
   NameContainer,
   PhoneContainer,
   EmailContainer,
+  CountryContainer,
+  ColorsContainer,
 } from './styles';
 import {LogOut} from 'react-native-feather';
 import {Edit2} from 'react-native-feather';
+import {ArrowDown} from 'react-native-feather';
 import MaskInput from 'react-native-mask-input';
 import {launchImageLibrary} from 'react-native-image-picker';
 
@@ -26,6 +32,7 @@ function Login({navigation}: any) {
   const [isSwitchOn, setIsSwitchOn] = React.useState(false);
 
   const [name, setName] = useState('Lucas Pereira de Almeida');
+  const [Color, setColor] = useState('#42C1C7');
   const [email, setEmail] = useState('lucas@qesh.com');
   const [Nacionalidade, setNacionalidade] = useState('Brasileiro');
 
@@ -58,9 +65,33 @@ function Login({navigation}: any) {
     });
   };
 
+  function TrocarTema() {
+    setColor('#ffee00');
+  }
+  function TrocarTema2() {
+    setColor('#FABC02');
+  }
+
+  function TrocarTema3() {
+    setColor('#FB9902');
+  }
+  function TrocarTema4() {
+    setColor('#FD5308');
+  }
+  function TrocarTema5() {
+    setColor('#FE2712');
+  }
+  function TrocarTema6() {
+    setColor('#30e020');
+  }
+  function TrocarTema7() {
+    setColor('#42C1C7');
+  }
+
   return (
     <Container>
-      <TopContainer />
+      <StatusBar backgroundColor={Color} barStyle="white" />
+      <TopContainer style={{backgroundColor: Color}} />
 
       <ImageContainer>
         <TouchableOpacity
@@ -77,8 +108,8 @@ function Login({navigation}: any) {
           <Edit2
             style={{
               position: 'absolute',
-              left: '83%',
-              top: '80%',
+              left: '82%',
+              top: '84%',
               zIndex: 2,
               backgroundColor: '#ffffff',
               borderWidth: 1,
@@ -178,20 +209,133 @@ function Login({navigation}: any) {
         />
       </EmailContainer>
 
-      <TouchableOpacity
-        // eslint-disable-next-line react-native/no-inline-styles
-        style={{bottom: '12%'}}
-        disabled={isSwitchOn ? false : true}>
-        <Text style={styles.textInputs}>Nacionalidade</Text>
-        <TextInput
-          style={styles.input}
-          value={Nacionalidade}
-          onChangeText={value => setNacionalidade(value)}
-          returnKeyType={'next'}
-          keyboardType="email-address"
-          editable={false}
-        />
-      </TouchableOpacity>
+      <CountryContainer>
+        <TouchableOpacity
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{bottom: '25%'}}
+          disabled={isSwitchOn ? false : true}>
+          <ArrowDown
+            style={{left: '88%', top: '64%'}}
+            width={17}
+            height={17}
+            color={isSwitchOn ? '#000' : '#fff'}
+          />
+          <Text style={styles.textInputs}>Nacionalidade</Text>
+          <TextInput
+            style={styles.input}
+            value={Nacionalidade}
+            onChangeText={value => setNacionalidade(value)}
+            returnKeyType={'next'}
+            keyboardType="email-address"
+            editable={false}
+          />
+        </TouchableOpacity>
+      </CountryContainer>
+
+      <ColorsContainer>
+        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+          <TouchableOpacity
+            disabled={isSwitchOn ? false : true}
+            onPress={TrocarTema}
+            style={{zIndex: 100}}>
+            <View
+              style={{
+                width: 50,
+                height: 50,
+                borderRadius: 25,
+                backgroundColor: '#FEFE33',
+                marginLeft: 30,
+                marginTop: 5,
+              }}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={TrocarTema2}
+            disabled={isSwitchOn ? false : true}>
+            <View
+              style={{
+                width: 50,
+                height: 50,
+                borderRadius: 25,
+                backgroundColor: '#FABC02',
+                marginLeft: 30,
+                marginTop: 5,
+              }}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={TrocarTema3}
+            disabled={isSwitchOn ? false : true}>
+            <View
+              style={{
+                width: 50,
+                height: 50,
+                borderRadius: 25,
+                backgroundColor: '#FB9902',
+                marginLeft: 30,
+                marginTop: 5,
+              }}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={TrocarTema4}
+            disabled={isSwitchOn ? false : true}>
+            <View
+              style={{
+                width: 50,
+                height: 50,
+                borderRadius: 25,
+                backgroundColor: '#FD5308',
+                marginLeft: 30,
+                marginTop: 5,
+              }}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={TrocarTema5}
+            disabled={isSwitchOn ? false : true}>
+            <View
+              style={{
+                width: 50,
+                height: 50,
+                borderRadius: 25,
+                backgroundColor: '#FE2712',
+                marginLeft: 30,
+                marginTop: 5,
+              }}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={TrocarTema6}
+            disabled={isSwitchOn ? false : true}>
+            <View
+              style={{
+                width: 50,
+                height: 50,
+                borderRadius: 25,
+                backgroundColor: '#30e020',
+                marginLeft: 30,
+                marginTop: 5,
+              }}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={TrocarTema7}
+            disabled={isSwitchOn ? false : true}>
+            <View
+              style={{
+                width: 50,
+                height: 50,
+                borderRadius: 25,
+                backgroundColor: '#42C1C7',
+                marginLeft: 30,
+                marginTop: 5,
+                marginRight: 4,
+              }}
+            />
+          </TouchableOpacity>
+        </ScrollView>
+      </ColorsContainer>
     </Container>
   );
 }
@@ -233,7 +377,15 @@ const styles = StyleSheet.create({
     fontSize: 15,
     marginLeft: 25,
     width: '90%',
-    height: 50,
+    height: 48,
     color: '#393939',
+  },
+  colors: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    backgroundColor: '#ff0000',
+    marginLeft: 30,
+    marginTop: 5,
   },
 });
