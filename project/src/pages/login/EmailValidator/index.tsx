@@ -71,7 +71,7 @@ function EmailValidator({navigation}: any) {
   }, [moveAnim, inputShow, Show]);
 
   function Login() {
-    if (email === '') {
+    if (email === 'lucas@qesh.com') {
       navigation.navigate('Login');
       setEmail('');
     } else {

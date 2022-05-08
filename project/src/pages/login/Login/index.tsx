@@ -23,7 +23,7 @@ function Login({navigation}: any) {
     ToastAndroid.showWithGravity(msg, ToastAndroid.LONG, ToastAndroid.CENTER);
   };
   function Logar() {
-    if (senha === '') {
+    if (senha === '123456') {
       navigation.navigate('Home');
       setSenha('');
     } else {

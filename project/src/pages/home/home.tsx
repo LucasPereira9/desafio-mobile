@@ -154,7 +154,7 @@ function Login({navigation}: any) {
         />
         <Text style={styles.textInputs}>Nome</Text>
         <TextInput
-        pattern="[a-zA-Z0-9]+"
+          pattern="[a-zA-Z0-9]+"
           style={styles.input}
           value={name}
           onChangeText={value => setName(value)}
@@ -491,6 +491,7 @@ const styles = StyleSheet.create({
     marginBottom: 120,
   },
   textInputs: {
+    fontStyle: 'bold',
     paddingLeft: 25,
     color: '#000000',
     marginBottom: 10,
@@ -523,17 +524,16 @@ const styles = StyleSheet.create({
   },
   modal: {
     widht: '100%',
-    height: '70%',
+    height: '75%',
     backgroundColor: '#ffffff',
   },
   modalText: {
-    fontFamily: '',
     color: '#222121da',
     width: '100%',
-    borderBottomWidth: 0.2,
+    borderBottomWidth: 0.5,
     borderBottomColor: '#5f5d5d',
     marginBottom: 20,
-    fontSize: 30,
+    fontSize: 19,
     textAlign: 'center',
   },
 });
