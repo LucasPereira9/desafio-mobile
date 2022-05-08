@@ -530,8 +530,8 @@ const styles = StyleSheet.create({
   modalText: {
     color: '#222121da',
     width: '100%',
-    borderBottomWidth: 0.5,
-    borderBottomColor: '#5f5d5d',
+    borderBottomWidth: 0.3,
+    borderBottomColor: '#5f5d5dae',
     marginBottom: 20,
     fontSize: 19,
     textAlign: 'center',
