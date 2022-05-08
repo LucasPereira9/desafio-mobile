@@ -1,7 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
 import {
-  Alert,
   Image,
   ScrollView,
   StatusBar,
@@ -12,6 +11,7 @@ import {
   ToastAndroid,
   TouchableOpacity,
   View,
+  Modal,
 } from 'react-native';
 import {TopContainer, Container, ImageContainer} from '../login/Login/styles';
 import {
@@ -35,6 +35,7 @@ function Login({navigation}: any) {
   const [Color, setColor] = useState('#42C1C7');
   const [email, setEmail] = useState('lucas@qesh.com');
   const [Nacionalidade, setNacionalidade] = useState('Brasileiro');
+  const [showModal, setShowModal] = useState(false);
 
   const [phone, setPhone] = React.useState('');
   function Sair() {
@@ -153,6 +154,7 @@ function Login({navigation}: any) {
         />
         <Text style={styles.textInputs}>Nome</Text>
         <TextInput
+        pattern="[a-zA-Z0-9]+"
           style={styles.input}
           value={name}
           onChangeText={value => setName(value)}
@@ -171,6 +173,7 @@ function Login({navigation}: any) {
         />
         <Text style={styles.textInputs}>Telefone</Text>
         <MaskInput
+          keyboardType="numeric"
           style={styles.input}
           value={phone}
           editable={isSwitchOn ? true : false}
@@ -211,6 +214,9 @@ function Login({navigation}: any) {
 
       <CountryContainer>
         <TouchableOpacity
+          onPress={() => {
+            setShowModal(!showModal);
+          }}
           // eslint-disable-next-line react-native/no-inline-styles
           style={{bottom: '25%'}}
           disabled={isSwitchOn ? false : true}>
@@ -231,6 +237,133 @@ function Login({navigation}: any) {
           />
         </TouchableOpacity>
       </CountryContainer>
+      <Modal
+        animationType={'slide'}
+        transparent={true}
+        visible={showModal}
+        onRequestClose={() => {
+          console.log('Modal has been closed.');
+        }}>
+        <View style={styles.modal}>
+          <View
+            style={{
+              width: 80,
+              height: 10,
+              backgroundColor: '#6F6F6F',
+              alignSelf: 'center',
+              borderRadius: 20,
+            }}
+          />
+          <Text
+            style={{
+              color: '#000',
+              top: '8%',
+              alignSelf: 'center',
+              marginBottom: 70,
+              fontSize: 26,
+            }}>
+            NACIONALIDADE
+          </Text>
+
+          <ScrollView showsVerticalScrollIndicator={false}>
+            <TouchableOpacity
+              onPress={() => {
+                setShowModal(!showModal);
+                setNacionalidade('afegão');
+              }}>
+              <Text style={styles.modalText}>afegão</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => {
+                setShowModal(!showModal);
+                setNacionalidade('sul-africano');
+              }}>
+              <Text style={styles.modalText}>sul-africano</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => {
+                setShowModal(!showModal);
+                setNacionalidade('albanês');
+              }}>
+              <Text style={styles.modalText}>albanês</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => {
+                setShowModal(!showModal);
+                setNacionalidade('alemão');
+              }}>
+              <Text style={styles.modalText}>alemão</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => {
+                setShowModal(!showModal);
+                setNacionalidade('andorrano');
+              }}>
+              <Text style={styles.modalText}>andorrano</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => {
+                setShowModal(!showModal);
+                setNacionalidade('angolano');
+              }}>
+              <Text style={styles.modalText}>angolano</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => {
+                setShowModal(!showModal);
+                setNacionalidade('antiguano');
+              }}>
+              <Text style={styles.modalText}>antiguano</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => {
+                setShowModal(!showModal);
+                setNacionalidade('Italiano');
+              }}>
+              <Text style={styles.modalText}>Italiano</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => {
+                setShowModal(!showModal);
+                setNacionalidade('saudito');
+              }}>
+              <Text style={styles.modalText}>saudito</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => {
+                setShowModal(!showModal);
+                setNacionalidade('argelino');
+              }}>
+              <Text style={styles.modalText}>argelino</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => {
+                setShowModal(!showModal);
+                setNacionalidade('argentino');
+              }}>
+              <Text style={styles.modalText}>argentino</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => {
+                setShowModal(!showModal);
+                setNacionalidade('Brasileiro');
+              }}>
+              <Text style={styles.modalText}>Brasileiro</Text>
+            </TouchableOpacity>
+          </ScrollView>
+        </View>
+      </Modal>
 
       <ColorsContainer>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
@@ -387,5 +520,20 @@ const styles = StyleSheet.create({
     backgroundColor: '#ff0000',
     marginLeft: 30,
     marginTop: 5,
+  },
+  modal: {
+    widht: '100%',
+    height: '70%',
+    backgroundColor: '#ffffff',
+  },
+  modalText: {
+    fontFamily: '',
+    color: '#222121da',
+    width: '100%',
+    borderBottomWidth: 0.2,
+    borderBottomColor: '#5f5d5d',
+    marginBottom: 20,
+    fontSize: 30,
+    textAlign: 'center',
   },
 });

@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     color: 'black',
     fontSize: 15,
     paddingTop: 28,
-    paddingLeft: 25,
+    paddingLeft: 22,
     marginBottom: 15,
   },
   text3: {
